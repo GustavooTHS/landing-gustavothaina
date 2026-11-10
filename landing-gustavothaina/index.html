@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo Thainã · Gestão de Tráfego e Performance</title>
+<meta name="description" content="Gestor de tráfego com R$ 1,3 milhão investidos em Meta Ads e 2,6 milhões de cliques gerados. Meta Ads, Google Ads, sites e SEO para negócios que precisam vender. Fale no WhatsApp.">
+<meta property="og:title" content="Gustavo Thainã · Gestão de Tráfego e Performance">
+<meta property="og:description" content="Anúncios que viram clientes de verdade. Veja os números reais das contas que eu gerencio.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2457FF">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="logo-gt.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF7; --bg-2:#F2F2EE; --surface:#FFFFFF; --ink:#14161A; --ink-2:#4A4F58; --muted:#6B7079;
+  --line:#E4E4DE; --grid:#ECECE7; --blue:#2457FF; --blue-ink:#1739C2; --blue-soft:#EAEFFF; --blue-mid:#C9D5FF;
+  --c1:#2457FF; --c2:#E8833A; --c3:#0E9F8E; --c4:#9B5DE5; --gray:#A9AEB7;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.025em;line-height:1.05}
+h2{font-size:clamp(34px,4.6vw,56px);font-weight:800;max-width:18ch}
+h3{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.sub{color:var(--ink-2);font-size:clamp(17px,1.6vw,20px);max-width:56ch}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;padding:16px 26px;border-radius:999px;transition:background .15s,transform .15s,border-color .15s;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-ink)}
+.btn-line{border:1.5px solid var(--line);background:var(--surface)}
+.btn-line:hover{border-color:var(--ink)}
+
+/* topo */
+header{position:sticky;top:0;z-index:40;background:rgba(250,250,247,.88);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;white-space:nowrap}
+.brand svg{width:38px;height:38px;flex:none}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:16px;font-weight:500;color:var(--ink-2)}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.nav .btn{padding:11px 20px;font-size:15px}
+
+/* hero */
+.hero{padding:56px 0 80px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:28px}
+.hero h1{font-size:clamp(44px,6.2vw,84px);font-weight:800;letter-spacing:-.04em;line-height:.98}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink-2)}
+.avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--surface);box-shadow:0 0 0 2px var(--blue-mid)}
+.proof .dot{width:10px;height:10px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 4px #D6F3E4;flex:none}
+
+/* painel do hero */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 30px 60px -40px rgba(20,22,26,.35),0 2px 0 rgba(20,22,26,.02)}
+.panel-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+.panel-title{font-weight:700;font-size:16px}
+.panel-title small{display:block;font-weight:500;color:var(--muted);font-size:13px}
+.live{font-size:13px;font-weight:600;color:#127A48;background:#E3F6EC;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:18px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--bg-2);color:var(--ink-2);white-space:nowrap;transition:background .15s,color .15s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:var(--bg);border-radius:16px;padding:14px 16px}
+.kpi span{display:block;font-size:13px;color:var(--muted)}
+.kpi b{display:block;font-size:clamp(20px,2.2vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.chart{position:relative}
+.chart svg{display:block;width:100%;overflow:visible}
+.chart-cap{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted);margin-top:8px}
+
+/* tooltip */
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;min-width:150px;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;z-index:5;white-space:nowrap}
+.tip.on{opacity:1;transform:none}
+.tip b{font-weight:700}
+.tip .row{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.tip .sw{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px}
+.tip hr{border:0;border-top:1px solid rgba(255,255,255,.18);margin:6px 0}
+
+/* faixa de números */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.band-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.band-item{padding:32px 24px;border-left:1px solid var(--line)}
+.band-item:first-child{border-left:0;padding-left:0}
+.band-item b{display:block;font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.band-item span{display:block;margin-top:6px;font-size:15px;color:var(--ink-2)}
+
+section.block{padding:112px 0}
+.head{display:flex;flex-direction:column;gap:16px;margin-bottom:48px}
+
+/* escala */
+.scale-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px}
+.controls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+.seg{display:inline-flex;background:var(--bg-2);border-radius:999px;padding:4px}
+.seg button{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(20,22,26,.12)}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.legend button{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);background:var(--surface)}
+.legend button .sw{width:10px;height:10px;border-radius:3px}
+.legend button[aria-pressed="false"]{opacity:.45}
+.legend button[aria-pressed="false"] .sw{background:transparent!important;outline:1.5px solid var(--gray)}
+.link-btn{font-size:14px;font-weight:600;color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.datatable{margin-top:16px;max-height:320px;overflow:auto;border:1px solid var(--line);border-radius:14px}
+.datatable table{width:100%;border-collapse:collapse;font-size:14px}
+.datatable th,.datatable td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--grid);white-space:nowrap}
+.datatable th:first-child,.datatable td:first-child{text-align:left}
+.datatable thead th{position:sticky;top:0;background:var(--bg-2);font-weight:600}
+.insights{display:flex;flex-direction:column;gap:28px}
+.insight b{display:block;font-size:56px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--blue)}
+.insight p{color:var(--ink-2);font-size:16px;margin-top:8px}
+.insight + .insight{padding-top:28px;border-top:1px solid var(--line)}
+
+/* casos */
+.cases{background:var(--ink);color:#F3F4F1}
+.cases .sub{color:#B5BAC3}
+.explorer{display:grid;grid-template-columns:380px minmax(0,1fr);gap:24px}
+.case-list{display:flex;flex-direction:column;gap:4px}
+.case-btn{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;padding:18px 20px;border-radius:16px;color:#B5BAC3;transition:background .15s,color .15s}
+.case-btn strong{display:block;color:#F3F4F1;font-size:18px;font-weight:700;letter-spacing:-.01em}
+.case-btn span{font-size:14px}
+.case-btn em{font-style:normal;font-weight:800;font-size:18px;color:#F3F4F1;white-space:nowrap}
+.case-btn:hover{background:#1E2128}
+.case-btn[aria-selected="true"]{background:#F3F4F1;color:var(--ink-2)}
+.case-btn[aria-selected="true"] strong,.case-btn[aria-selected="true"] em{color:var(--ink)}
+.case-detail{background:var(--surface);color:var(--ink);border-radius:28px;padding:36px;min-height:520px;display:flex;flex-direction:column;gap:22px}
+.case-detail .meta{font-size:15px;color:var(--muted)}
+.case-detail h3{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em}
+.case-detail p.desc{color:var(--ink-2);max-width:60ch}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.m{background:var(--bg);border-radius:16px;padding:16px}
+.m b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.m span{display:block;font-size:14px;color:var(--ink-2);margin-top:4px;line-height:1.35}
+.case-chart{margin-top:auto}
+.case-chart h4{font-size:15px;font-weight:600;color:var(--ink-2);margin-bottom:10px}
+.funnel{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px}
+.fstep{background:var(--blue-soft);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:4px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.fstep.last{background:var(--blue);color:#fff}
+.fstep b{font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.fstep span{font-size:14px;color:var(--ink-2);line-height:1.35}
+.fstep.last span{color:#DCE4FF}
+.farrow{align-self:center;color:var(--blue);font-size:22px;font-weight:800;opacity:0;transition:opacity .5s}
+.funnel.on .fstep,.funnel.on .farrow{opacity:1;transform:none}
+.funnel.on > :nth-child(2){transition-delay:.15s}.funnel.on > :nth-child(3){transition-delay:.25s}
+.funnel.on > :nth-child(4){transition-delay:.4s}.funnel.on > :nth-child(5){transition-delay:.5s}
+.fnote{font-size:13px;color:var(--muted);margin-top:10px}
+.case-detail.swap{animation:swap .35s ease}
+@keyframes swap{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ganhos (antes/depois) */
+.gains{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.gain{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.gain .who{font-size:14px;color:var(--muted)}
+.gain b.pct{font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.ba{display:flex;flex-direction:column;gap:6px}
+.ba-row{display:grid;grid-template-columns:52px 1fr;align-items:center;gap:10px;font-size:13px;color:var(--ink-2)}
+.ba-bar{height:14px;border-radius:0 4px 4px 0;background:var(--gray);width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.ba-bar.after{background:var(--blue)}
+
+.gain.feat{background:var(--blue);border-color:var(--blue);color:#fff}
+.gain.feat .who{color:#C9D5FF}
+.gstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
+.gstats div{background:rgba(255,255,255,.12);border-radius:12px;padding:10px 12px}
+.gstats b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.gstats span{display:block;font-size:13px;line-height:1.3;color:#DCE4FF;margin-top:2px}
+
+/* sites */
+.sites{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.site{display:flex;flex-direction:column;gap:16px;color:inherit}
+.frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 24px 48px -32px rgba(20,22,26,.35);transition:transform .25s,box-shadow .25s}
+.site:hover .frame,.site:focus-visible .frame{transform:translateY(-4px);box-shadow:0 32px 56px -30px rgba(20,22,26,.45)}
+.bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--bg-2);border-bottom:1px solid var(--line)}
+.bar i{width:10px;height:10px;border-radius:50%;background:#D5D5CF}
+.bar span{margin-left:10px;font-size:13px;color:var(--muted);background:var(--surface);border-radius:999px;padding:3px 12px;flex:1;max-width:260px}
+.shot{position:relative;aspect-ratio:2/1;background:linear-gradient(135deg,var(--blue-soft),#F4F6FF)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.shot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-.03em;color:var(--blue)}
+.site-info{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.site-info p{color:var(--ink-2);font-size:16px;margin-top:4px}
+.site-info .go{flex:none;font-size:14px;font-weight:700;color:var(--blue);white-space:nowrap;margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{font-size:13px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+
+/* método */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.step{padding:28px 24px 0 0;display:flex;flex-direction:column;gap:10px;position:relative}
+.step::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+.step .n{font-size:14px;font-weight:700;color:var(--blue)}
+.step p{color:var(--ink-2);font-size:16px}
+/* diferencial */
+.edge{background:var(--blue);color:#fff}
+.edge .sub{color:#DCE4FF}
+.edge-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px}
+.pillar{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:18px}
+.pillar b{display:block;font-size:20px;font-weight:800;letter-spacing:-.01em}
+.pillar span{font-size:15px;color:#DCE4FF;line-height:1.4;display:block;margin-top:4px}
+.compare{background:var(--surface);color:var(--ink);border-radius:28px;padding:12px 28px;box-shadow:0 30px 60px -30px rgba(10,20,80,.45)}
+.compare table{width:100%;border-collapse:collapse;font-size:16px}
+.compare th{font-size:14px;font-weight:700;color:var(--muted);text-align:left;padding:16px 8px 12px}
+.compare th.me{color:var(--blue)}
+.compare td{padding:16px 8px;border-top:1px solid var(--grid);vertical-align:top;line-height:1.4}
+.compare td:first-child{font-weight:700;width:30%}
+.compare td.no{color:var(--muted)}
+.compare td.me{font-weight:600}
+.compare td.me::before{content:"";display:inline-block;width:9px;height:5px;border-left:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);transform:rotate(-45deg) translateY(-3px);margin-right:9px}
+
+/* serviços */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.service{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:14px}
+.service.hl{background:var(--ink);color:#F3F4F1;border-color:var(--ink)}
+.service.hl ul{color:#C8CCD3}
+.service.hl .for{color:#9EA3AD;border-color:#2C3038}
+.service .pill{align-self:flex-start;font-size:13px;font-weight:600;background:var(--blue);color:#fff;padding:5px 10px;border-radius:999px}
+.service ul{list-style:none;display:flex;flex-direction:column;gap:9px;color:var(--ink-2);font-size:16px}
+.service li{padding-left:22px;position:relative}
+.service li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:6px;border-left:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);transform:rotate(-45deg)}
+.service.hl li::before{border-color:#7E9BFF}
+.service .for{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+
+/* sobre */
+.about{display:grid;grid-template-columns:420px minmax(0,1fr);gap:56px;align-items:center}
+.photo{position:relative;aspect-ratio:4/5;border-radius:28px;background:var(--blue-soft);overflow:hidden}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.photo{background:#0E0E0F}
+.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--blue);text-align:center}
+.photo .ph b{font-size:88px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.photo .ph small{font-size:14px;color:var(--ink-2)}
+.about-copy{display:flex;flex-direction:column;gap:18px}
+.about-copy p{color:var(--ink-2)}
+.timeline{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-top:8px}
+.tl{padding:0 0 18px 20px;position:relative;font-size:16px}
+.tl::before{content:"";position:absolute;left:-6px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--blue)}
+.tl b{font-weight:700}
+.tl span{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;font-weight:500;background:var(--surface);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font-weight:700;font-size:19px;display:flex;justify-content:space-between;gap:24px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;line-height:1;color:var(--blue);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--ink-2)}
+
+/* cta final */
+.final-box{background:var(--blue);color:#fff;border-radius:36px;padding:80px 56px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:end;overflow:hidden;position:relative}
+.final-box h2{max-width:16ch}
+.final-box p{font-size:19px;color:#DCE4FF;margin-top:18px;max-width:44ch}
+.final-box .btn{background:#fff;color:var(--blue);justify-self:start}
+.final-box .btn:hover{background:#EEF2FF}
+.final-spark{position:absolute;right:0;bottom:0;width:60%;height:70%;opacity:.22;pointer-events:none}
+
+footer{padding:40px 0;font-size:14px;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:28px}
+.foot a:hover{color:var(--ink)}
+
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:50;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.35);transition:transform .15s}
+.wa-float:hover{transform:scale(1.06)}
+.wa-float svg{width:32px;height:32px}
+
+/* animação de entrada do hero (único momento orquestrado) */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-copy > *{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}
+.hero-copy > *:nth-child(3){animation-delay:.16s}
+.hero-copy > *:nth-child(4){animation-delay:.24s}
+.panel{animation:rise .8s .2s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+@media (max-width:1040px){
+  .hero-grid,.scale-grid,.explorer,.edge-grid,.about,.faq-grid,.final-box{grid-template-columns:minmax(0,1fr)}
+  .insights{flex-direction:row;flex-wrap:wrap}
+  .insight{flex:1 1 220px}
+  .insight + .insight{padding-top:0;border-top:0}
+  .case-list{flex-direction:row;overflow-x:auto;scrollbar-width:none}
+  .case-list::-webkit-scrollbar{display:none}
+  .case-btn{flex:none}
+  .case-btn em{display:none}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);row-gap:32px}
+  .about .photo{max-width:420px}
+  .nav-links a:not(.btn){display:none}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  section.block{padding:80px 0}
+  .hero{padding:32px 0 56px}
+  .panel{padding:16px;border-radius:22px}
+  .kpis{grid-template-columns:repeat(3,1fr);gap:6px}
+  .kpi{padding:10px}
+  .kpi b{font-size:17px;white-space:nowrap}
+  .live{display:none}
+  .m b{font-size:24px;white-space:nowrap}
+  .mgrid{grid-template-columns:1fr 1fr}
+  .wa-float{width:54px;height:54px;right:14px;bottom:14px}
+  .band-grid{grid-template-columns:repeat(2,1fr)}
+  .band-item{padding:22px 12px;border-left:0;border-top:1px solid var(--line)}
+  .band-item:nth-child(-n+2){border-top:0}
+  .band-item:nth-child(odd){padding-left:0}
+  .chart-card,.case-detail,.x{padding:20px;border-radius:22px}
+  .steps{grid-template-columns:1fr}
+  .sites{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr 1fr}
+  .compare{padding:4px 14px}
+  .compare table{font-size:14px}
+  .funnel{grid-template-columns:1fr}
+  .farrow{transform:rotate(90deg);justify-self:center}
+  .final-box{padding:48px 24px;border-radius:28px}
+  .hide-sm{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="Gustavo Thainã, voltar ao início">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="28" fill="#2457FF"/><g fill="none" stroke="#FAFAF7" stroke-width="11"><path d="M58.3 47.1 A20 20 0 1 0 63 60 H46"/><path d="M73 40 H103 M88 34.5 V85.5"/></g></svg>
+      Gustavo Thainã
+    </a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#escala">Números</a>
+      <a href="#sites">Sites</a>
+      <a href="#casos">Casos</a>
+      <a href="#diferencial">Diferencial</a>
+      <a href="#servicos">Serviços</a>
+      <a class="btn btn-primary js-wa" href="#"><span class="hide-sm">Falar no&nbsp;</span>WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Anúncios que viram clientes de verdade.</h1>
+      <p class="sub">Sou Gustavo Thainã, gestor de tráfego há mais de 12 anos. Cuido de Meta Ads, Google Ads, páginas e rastreio para que cada real investido volte como venda. No painel, os números reais das contas que eu gerencio hoje.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary js-wa" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Quero vender mais</a>
+        <a class="btn btn-line" href="#casos">Ver casos</a>
+      </div>
+      <p class="proof"><img class="avatar" src="foto-avatar.jpg" alt="" onerror="this.remove()"><span>Os clientes que atendo faturam juntos cerca de R$ 15 milhões por mês.</span></p>
+    </div>
+
+    <div class="panel" aria-label="Painel com dados reais das contas de parques que eu gerencio">
+      <div class="panel-top">
+        <div class="panel-title">Parques e atrações em 3 destinos<small>Meta Ads, dados reais desde out/2023</small></div>
+        <span class="live">Contas ativas</span>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><span>Faturamento/mês</span><b>~R$ 5 mi</b></div>
+        <div class="kpi"><span>Cliques gerados</span><b id="k-c">–</b></div>
+        <div class="kpi"><span>Crescimento</span><b id="k-g">–</b></div>
+      </div>
+      <div class="chart" id="hero-chart"></div>
+      <div class="chart-cap"><span>Cliques por mês, somando as contas</span><span id="hero-range"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA -->
+<div class="band" aria-label="Números principais">
+  <div class="wrap band-grid">
+    <div class="band-item"><b>R$ 15 mi</b><span>por mês em vendas dos clientes de turismo que atendo</span></div>
+    <div class="band-item"><b>900/dia</b><span>leads qualificados para a central de vendas de um resort</span></div>
+    <div class="band-item"><b id="b-c">2,6 mi</b><span>de cliques para sites e WhatsApp desde 2023</span></div>
+    <div class="band-item"><b>12+ anos</b><span>em marketing digital, sites e SEO</span></div>
+  </div>
+</div>
+
+<!-- ESCALA -->
+<section class="block" id="escala">
+  <div class="wrap">
+    <div class="head">
+      <h2>R$ 5 milhões por mês em três destinos</h2>
+      <p class="sub">Parques e atrações em Foz do Iguaçu, Gramado e Campos do Jordão. A venda fecha no WhatsApp, então o faturamento vem dos próprios clientes; os cliques abaixo vêm direto do Meta Ads.</p>
+    </div>
+    <div class="scale-grid">
+      <div class="chart-card">
+        <div class="chart" id="stack-chart"></div>
+        <div class="chart-cap"><span>Cliques por mês, somando as contas de parques. Passe o mouse para ver cada mês.</span></div>
+      </div>
+      <div class="insights">
+        <div class="insight"><b>~R$ 5 mi</b><p>de faturamento por mês somando os três destinos.</p></div>
+        <div class="insight"><b id="i-mult">6,7x</b><p>mais cliques por mês do que no início: de <span id="i-from">31,6 mil</span> em out/2023 para <span id="i-to">212 mil</span> em out/2026.</p></div>
+        <div class="insight"><b id="i-cpc">R$ 0,48</b><p>de custo por clique no último ano, menor que no primeiro, mesmo com a operação muito maior.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS -->
+<section class="block cases" id="casos">
+  <div class="wrap">
+    <div class="head">
+      <h2>Casos de clientes</h2>
+      <p class="sub">Turismo é onde tenho mais escala, mas o método serve para qualquer negócio que vende por lead, WhatsApp ou site. Escolha um caso.</p>
+    </div>
+    <div class="explorer">
+      <div class="case-list" role="tablist" id="case-list" aria-label="Casos"></div>
+      <article class="case-detail" id="case-detail" role="tabpanel" aria-live="polite"></article>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAL -->
+<section class="block edge" id="diferencial">
+  <div class="wrap edge-grid">
+    <div>
+      <h2>Anúncio, site e SEO na mesma mão</h2>
+      <p class="sub" style="margin-top:16px">A maioria dos gestores cuida só da campanha. Eu cuido do caminho inteiro até a venda, porque é ali que o dinheiro costuma vazar.</p>
+      <div class="pillars">
+        <div class="pillar"><b>Anúncios</b><span>Meta, Google e TikTok Ads com foco em venda</span></div>
+        <div class="pillar"><b>Site e páginas</b><span>Landing pages rápidas e feitas para converter</span></div>
+        <div class="pillar"><b>Rastreio</b><span>Pixel, GA4 e Tag Manager configurados do zero</span></div>
+        <div class="pillar"><b>SEO e GEO</b><span>Aparecer no Google e nas buscas com IA</span></div>
+      </div>
+    </div>
+    <div class="compare">
+      <table>
+        <thead><tr><th></th><th>Só gestão de tráfego</th><th class="me">Comigo</th></tr></thead>
+        <tbody>
+          <tr><td>Anúncios</td><td class="no">Sim</td><td class="me">Sim, com otimização semanal</td></tr>
+          <tr><td>Página de destino</td><td class="no">Fica com outro fornecedor</td><td class="me">Eu crio e ajusto</td></tr>
+          <tr><td>Rastreio</td><td class="no">Muitas vezes incompleto</td><td class="me">Configurado e testado</td></tr>
+          <tr><td>SEO e GEO</td><td class="no">Não incluso</td><td class="me">Incluso no plano completo</td></tr>
+          <tr><td>Quando a venda trava</td><td class="no">Você corre atrás de cada fornecedor</td><td class="me">Eu mesmo resolvo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- GANHOS -->
+<section class="block">
+  <div class="wrap">
+    <div class="head">
+      <h2>Um destaque de cada cliente</h2>
+      <p class="sub">O maior resultado de cada projeto. Nos cartões com barras, a cinza é o ponto de partida e a azul, o resultado.</p>
+    </div>
+    <div class="gains" id="gains"></div>
+  </div>
+</section>
+
+<!-- SITES -->
+<section class="block" id="sites" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Sites que eu fiz</h2>
+      <p class="sub">Do turismo à tecnologia B2B. Sites rápidos, prontos para anúncios e para aparecer no Google.</p>
+    </div>
+    <div class="sites">
+      <!-- Coloque os prints em uma pasta "sites" ao lado deste arquivo: sites/dreams.jpg, sites/ligo.jpg, sites/lira.jpg, sites/myrthes.jpg (1440x900) -->
+      <a class="site" href="https://dreamsparkshow.com.br" target="_blank" rel="noopener">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span>dreamsparkshow.com.br</span></div>
+          <div class="shot"><div class="ph">dreamsparkshow.com.br</div><img src="sites/dreams.jpg" alt="Página inicial de Dreams Park Show" loading="lazy" onerror="this.remove()"></div></div>
+        <div class="site-info"><div><h3>Dreams Park Show</h3><p>Home de complexo turístico em Foz do Iguaçu, com atrações, ingressos e promoções.</p><div class="tags"><span>Turismo</span><span>Home</span><span>Conversão</span></div></div><span class="go">Visitar ↗</span></div>
+      </a>
+      <a class="site" href="https://ligo.cloud" target="_blank" rel="noopener">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ligo.cloud</span></div>
+          <div class="shot"><div class="ph">ligo.cloud</div><img src="sites/ligo.jpg" alt="Página inicial de Ligo Cloud" loading="lazy" onerror="this.remove()"></div></div>
+        <div class="site-info"><div><h3>Ligo Cloud</h3><p>Site de plataforma de atendimento com IA: módulos, cases, blog e pedido de demonstração.</p><div class="tags"><span>Tecnologia B2B</span><span>Site completo</span><span>SEO</span></div></div><span class="go">Visitar ↗</span></div>
+      </a>
+      <a class="site" href="https://lira-ia.com" target="_blank" rel="noopener">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span>lira-ia.com</span></div>
+          <div class="shot"><div class="ph">lira-ia.com</div><img src="sites/lira.jpg" alt="Página inicial de Lira" loading="lazy" onerror="this.remove()"></div></div>
+        <div class="site-info"><div><h3>Lira</h3><p>Página de produto de IA generativa que responde com base nos arquivos da empresa.</p><div class="tags"><span>IA</span><span>Página de produto</span><span>SEO</span></div></div><span class="go">Visitar ↗</span></div>
+      </a>
+      <a class="site" href="https://myrthes.com.br" target="_blank" rel="noopener">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><span>myrthes.com.br</span></div>
+          <div class="shot"><div class="ph">myrthes.com.br</div><img src="sites/myrthes.jpg" alt="Página inicial de Myrthes" loading="lazy" onerror="this.remove()"></div></div>
+        <div class="site-info"><div><h3>Myrthes</h3><p>Site de software jurídico com IA para gestão de processos e contencioso de massa.</p><div class="tags"><span>Jurídico</span><span>Site completo</span><span>SEO</span></div></div><span class="go">Visitar ↗</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="block" id="metodo" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head">
+      <h2>Do anúncio à venda, com uma pessoa só</h2>
+      <p class="sub">Você fala direto com quem executa. Sem intermediário e sem empurra-empurra entre fornecedores.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">Semana 1</span><h3>Diagnóstico</h3><p>Auditoria da conta de anúncios, do rastreio e das páginas de destino.</p></div>
+      <div class="step"><span class="n">Semana 1–2</span><h3>Estrutura</h3><p>Pixel, GA4, Tag Manager e páginas prontas para converter.</p></div>
+      <div class="step"><span class="n">Semana 2</span><h3>Campanhas no ar</h3><p>Meta, Google e TikTok Ads com foco em reserva, agendamento e venda.</p></div>
+      <div class="step"><span class="n">Todo mês</span><h3>Otimização</h3><p>Ajustes semanais e relatório claro, com números de negócio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="block" id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <h2>Escolha por onde começar</h2>
+      <p class="sub">Cada proposta é montada para a sua verba e o seu momento. Chame no WhatsApp para receber a sua.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <h3>Diagnóstico de anúncios</h3>
+        <ul><li>Auditoria completa da conta</li><li>Revisão de rastreio e páginas</li><li>Plano de ação priorizado</li></ul>
+        <p class="for">Para quem já anuncia e sente que o retorno não acompanha.</p>
+      </div>
+      <div class="service hl">
+        <span class="pill">Mais escolhido</span>
+        <h3>Gestão de tráfego</h3>
+        <ul><li>Meta Ads e Google Ads</li><li>Rastreio e conversões configurados</li><li>Otimização semanal</li><li>Relatório mensal com reunião</li></ul>
+        <p class="for">Para quem quer previsibilidade de leads e vendas todo mês.</p>
+      </div>
+      <div class="service">
+        <h3>Performance completa</h3>
+        <ul><li>Tudo da gestão de tráfego</li><li>Landing pages e otimização de conversão</li><li>SEO e GEO contínuos</li></ul>
+        <p class="for">Para quem quer o funil inteiro nas mãos de um especialista.</p>
+      </div>
+      <div class="service">
+        <h3>Sites e landing pages</h3>
+        <ul><li>Site institucional ou página de vendas</li><li>Rápido, responsivo e pronto para anúncios</li><li>SEO técnico e GEO desde o início</li></ul>
+        <p class="for">Para quem precisa de um site que vende, com ou sem gestão de tráfego.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="block" style="padding-top:0">
+  <div class="wrap about">
+    <div class="photo">
+      <!-- Coloque sua foto como foto-gustavo.jpg na mesma pasta deste arquivo -->
+      <div class="ph"><b>GT</b><small>Sua foto aqui (foto-gustavo.jpg)</small></div>
+      <img src="foto-gustavo.jpg" alt="Gustavo Thainã" onerror="this.remove()">
+    </div>
+    <div class="about-copy">
+      <h2>Prazer, Gustavo Thainã.</h2>
+      <p>Sou bacharel em Marketing pela Anhembi Morumbi e trabalho com marketing há mais de 12 anos. Comecei em SEO e sites e hoje sou especialista em tráfego pago, sem nunca largar a parte técnica.</p>
+      <div class="timeline">
+        <div class="tl"><b>2020</b> <span>SEO e automação para e-commerce de grande porte</span></div>
+        <div class="tl"><b>2022</b> <span>Tráfego e conversão para atrações turísticas em Foz do Iguaçu</span></div>
+        <div class="tl"><b>2023</b> <span>Resort com 900 leads por dia e varejo internacional</span></div>
+        <div class="tl"><b>2025</b> <span>Expansão das contas para Gramado e Campos do Jordão</span></div>
+      </div>
+      <div class="chips"><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>GA4</span><span>Tag Manager</span><span>Looker Studio</span><span>WordPress</span><span>SEO e GEO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <h2>Perguntas frequentes</h2>
+    <div>
+      <details><summary>Qual verba mínima de anúncios você recomenda?</summary><p>Para negócios locais, a partir de R$ 2 mil por mês em anúncios já dá para gerar resultado consistente. Abaixo disso, começo pelo diagnóstico para indicar onde investir melhor.</p></details>
+      <details><summary>Em quanto tempo vejo resultado?</summary><p>Os primeiros sinais aparecem nas primeiras semanas, depois que o rastreio e as campanhas estão no ar. O resultado firme vem com otimização contínua, por isso trabalho com contratos a partir de 3 meses.</p></details>
+      <details><summary>Você atende fora de Foz do Iguaçu?</summary><p>Sim. O atendimento é remoto para todo o Brasil, com reuniões por vídeo e contato direto pelo WhatsApp.</p></details>
+      <details><summary>Você também faz o site ou a landing page?</summary><p>Faço. Cuido da página e do SEO junto com os anúncios, para não perder venda no meio do caminho.</p></details>
+      <details><summary>Como acompanho os resultados?</summary><p>Você recebe relatório com os números de negócio (leads, vendas e custo por resultado) e uma reunião mensal para decidir os próximos passos.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="final-box">
+      <svg class="final-spark" id="final-spark" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div style="position:relative">
+        <h2>Vamos ver onde sua conta está deixando dinheiro na mesa?</h2>
+        <p>Me chame no WhatsApp. Na primeira conversa, sem custo, eu olho seus números e aponto as primeiras melhorias.</p>
+      </div>
+      <a class="btn js-wa" href="#" style="position:relative"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> GT Marketing · CNPJ 50.445.029/0001-55 · Foz do Iguaçu, PR</span>
+    <span><a href="mailto:gustavot.marketing@gmail.com">gustavot.marketing@gmail.com</a> · <a href="https://www.linkedin.com/in/gustavothaina" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<a class="wa-float js-wa" href="#" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></symbol>
+</svg>
+
+<script>
+/* ====== Configuração ====== */
+var WA_NUMBER = "5545999876290";
+var WA_TEXT = "Olá, Gustavo! Vim pelo seu site e quero conversar sobre anúncios para o meu negócio.";
+
+/* ====== Dados reais (Gerenciador de Anúncios da Meta, out/2023 a out/2026) ====== */
+var DATA = {"foz":{"s":[6124,8781,7928,1395,11432,7355,6326,6458,5668,9910,8986,7875,4264,5851,6204,14758,9776,8089,13073,11601,16817,22262,17238,13537,14180,16097,17264,19087,15831,18958,22210,20500,20127,40983,34189,35713,44142],"c":[11128,15993,8907,3962,25706,10683,10757,10465,9339,19383,15617,14099,7626,9512,8767,21527,12450,11590,14589,9974,21656,30033,21716,17196,17294,19433,32764,44847,28814,32880,37310,32709,31428,84830,73140,63424,69820]},"gra":{"s":[5788,1274,55029,12421,7068,10488,8431,735,0,0,0,1353,5766,5685,11083,6580,11968,8959,10713,11016,14257,11292,21415,9109,12001,10575,14347,11633,5955,9155,11103,11905,16737,24388,16869,22460,26380],"c":[12352,2872,129164,19240,4683,7950,6500,658,0,0,0,791,9477,9870,9568,6624,22885,15966,26790,19243,17726,14465,25702,19321,11769,16550,15440,15331,8374,19605,14896,18016,18411,30620,20068,33479,35147]},"cam":{"s":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8463,5495,6249,6614,4954,14412,10696,8499,4637,346,0,4934,7949,21472,20792],"c":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11015,29460,35889,29583,38933,65065,32798,24938,16927,1978,0,15945,22864,42422,46676]},"zoo":{"s":[1874,2348,1869,1643,3208,4564,2062,3535,4750,2532,3920,2712,2656,3858,3490,5847,4258,5381,7646,6218,5622,9970,5041,5802,6236,5471,7294,4426,5202,6392,8242,6492,9816,17675,20439,17696,23818],"c":[8085,14151,9712,5777,13602,12778,3473,5716,6925,3762,4992,3953,3973,5525,4009,6925,3946,20586,54841,33082,19379,29159,11324,7087,17334,16937,29322,22578,12018,23537,24288,15481,23290,53134,57993,44094,60221]}};
+var ACC = [
+  {k:"foz", name:"Dreams Park Foz", short:"Foz", color:"#2457FF"},
+  {k:"gra", name:"Dreams Gramado", short:"Gramado", color:"#E8833A"},
+  {k:"cam", name:"Dreams Campos do Jordão", short:"Campos", color:"#0E9F8E"},
+  {k:"zoo", name:"Zoo Park Foz", short:"Zoo Park", color:"#9B5DE5"}
+];
+var MES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+var LABELS = []; (function(){ var m=9,y=2023; for(var i=0;i<37;i++){ LABELS.push(MES[m]+"/"+String(y).slice(2)); m++; if(m>11){m=0;y++;} } })();
+var N = LABELS.length;
+var TOTAL = {s:[],c:[]}; for (var i=0;i<N;i++){ var s=0,c=0; ACC.forEach(function(a){ s+=DATA[a.k].s[i]; c+=DATA[a.k].c[i]; }); TOTAL.s.push(s); TOTAL.c.push(c); }
+
+/* ====== Formatação ====== */
+var nf = new Intl.NumberFormat("pt-BR");
+function sum(a){ return a.reduce(function(x,y){return x+y;},0); }
+function brl(v){ return "R$ " + nf.format(Math.round(v)); }
+function brl2(v){ return "R$ " + v.toFixed(2).replace(".",","); }
+function compact(v, money){
+  var p = money ? "R$ " : "";
+  if (v >= 1e6) return p + (v/1e6).toFixed(2).replace(".",",").replace(/,00$/,"") + " mi";
+  if (v >= 1e3) return p + (v/1e3).toFixed(v>=1e5?0:1).replace(".",",").replace(/,0$/,"") + " mil";
+  return p + nf.format(Math.round(v));
+}
+var SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent){ var e=document.createElementNS(SVGNS,tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if(parent) parent.appendChild(e); return e; }
+function ticks(v,n){ var raw=v/n, p=Math.pow(10,Math.floor(Math.log10(raw))), m=raw/p; var st=(m<=1?1:m<=2?2:m<=5?5:10)*p; var mx=Math.ceil(v/st)*st; return {step:st,max:mx,n:Math.round(mx/st)}; }
+function niceMax(v){ var p=Math.pow(10,Math.floor(Math.log10(v))); var n=v/p; var s = n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10; return s*p; }
+var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ====== WhatsApp ====== */
+var waUrl = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_TEXT);
+document.querySelectorAll(".js-wa").forEach(function(a){ a.href = waUrl; a.target="_blank"; a.rel="noopener"; });
+document.getElementById("y").textContent = new Date().getFullYear();
+var header = document.querySelector("header");
+addEventListener("scroll", function(){ header.classList.toggle("scrolled", scrollY > 8); }, {passive:true});
+
+/* ====== Contador animado ====== */
+function countTo(node, to, fmt, dur){
+  if (REDUCED) { node.textContent = fmt(to); return; }
+  var from = node._v || 0, t0 = null; dur = dur || 700;
+  function step(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/dur); var e=1-Math.pow(1-p,3); var v=from+(to-from)*e; node.textContent=fmt(v); if(p<1) requestAnimationFrame(step); else node._v=to; }
+  requestAnimationFrame(step);
+}
+
+/* ====== Tooltip ====== */
+function makeTip(box){ var t=document.createElement("div"); t.className="tip"; t.setAttribute("role","status"); box.appendChild(t); return t; }
+function placeTip(tip, box, x, y){
+  var bw = box.clientWidth, tw = tip.offsetWidth;
+  var left = x + 14; if (left + tw > bw) left = x - tw - 14; if (left < 0) left = 0;
+  tip.style.left = left + "px"; tip.style.top = Math.max(0, y - 10) + "px";
+}
+
+/* ====== Gráfico de área (hero e mini) ====== */
+function areaChart(box, values, opt){
+  opt = opt || {};
+  box.innerHTML = "";
+  var W = box.clientWidth || 600, H = opt.h || 220, pl = 44, pr = 8, pt = 12, pb = 26;
+  var svg = el("svg",{viewBox:"0 0 "+W+" "+H, height:H, role:"img", "aria-label": opt.label||""}, box);
+  var tk = ticks(Math.max.apply(null, values), 4), max = tk.max;
+  var iw = W-pl-pr, ih = H-pt-pb;
+  function X(i){ return pl + (values.length===1?0:i*iw/(values.length-1)); }
+  function Y(v){ return pt + ih - v/max*ih; }
+  for (var g=0; g<=tk.n; g++){
+    var gv = tk.step*g, gy = Y(gv);
+    el("line",{x1:pl,x2:W-pr,y1:gy,y2:gy,stroke: g===0?"#D5D5CF":"#ECECE7","stroke-width":1},svg);
+    var tx = el("text",{x:pl-8,y:gy+4,"text-anchor":"end","font-size":12,fill:"#6B7079"},svg); tx.textContent = compact(gv, opt.money).replace("R$ ","");
+  }
+  var labels = opt.labels || LABELS;
+  var stepL = Math.ceil(values.length / (W < 420 ? 4 : 7));
+  for (var i=0;i<values.length;i+=stepL){ var t=el("text",{x:X(i),y:H-6,"text-anchor": i===0?"start":"middle","font-size":12,fill:"#6B7079"},svg); t.textContent = labels[i]; }
+  var defs = el("defs",{},svg), gid = "g"+Math.random().toString(36).slice(2,7);
+  var lg = el("linearGradient",{id:gid,x1:0,x2:0,y1:0,y2:1},defs);
+  el("stop",{offset:"0%","stop-color":opt.color||"#2457FF","stop-opacity":.22},lg); el("stop",{offset:"100%","stop-color":opt.color||"#2457FF","stop-opacity":0},lg);
+  var d = values.map(function(v,i){ return (i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1); }).join(" ");
+  el("path",{d:d+" L"+X(values.length-1)+" "+Y(0)+" L"+X(0)+" "+Y(0)+" Z",fill:"url(#"+gid+")"},svg);
+  var line = el("path",{d:d,fill:"none",stroke:opt.color||"#2457FF","stroke-width":2.25,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+  if (opt.animate && !REDUCED){ var L=line.getTotalLength(); line.style.strokeDasharray=L; line.style.strokeDashoffset=L; line.getBoundingClientRect(); line.style.transition="stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1)"; line.style.strokeDashoffset=0; }
+  var last = values.length-1;
+  el("circle",{cx:X(last),cy:Y(values[last]),r:5,fill:opt.color||"#2457FF",stroke:"#fff","stroke-width":2},svg);
+  var cross = el("line",{y1:pt,y2:pt+ih,stroke:"#14161A","stroke-width":1,"stroke-dasharray":"3 3",opacity:0},svg);
+  var dot = el("circle",{r:5,fill:"#fff",stroke:opt.color||"#2457FF","stroke-width":2.5,opacity:0},svg);
+  var tip = makeTip(box);
+  var hit = el("rect",{x:pl,y:0,width:iw,height:H,fill:"transparent"},svg);
+  function show(clientX){
+    var r = svg.getBoundingClientRect(), x = (clientX - r.left) * (W / r.width);
+    var i = Math.round((x-pl)/iw*(values.length-1)); i = Math.max(0, Math.min(values.length-1, i));
+    cross.setAttribute("x1",X(i)); cross.setAttribute("x2",X(i)); cross.setAttribute("opacity",.4);
+    dot.setAttribute("cx",X(i)); dot.setAttribute("cy",Y(values[i])); dot.setAttribute("opacity",1);
+    tip.innerHTML = "<b>"+labels[i]+"</b><br>"+(opt.tipFmt ? opt.tipFmt(i) : nf.format(values[i]));
+    tip.classList.add("on"); placeTip(tip, box, X(i)*r.width/W, Y(values[i])*r.width/W);
+  }
+  function hide(){ cross.setAttribute("opacity",0); dot.setAttribute("opacity",0); tip.classList.remove("on"); }
+  hit.addEventListener("pointermove", function(e){ show(e.clientX); });
+  hit.addEventListener("pointerdown", function(e){ show(e.clientX); });
+  hit.addEventListener("pointerleave", hide);
+  return svg;
+}
+
+/* ====== HERO ====== */
+function renderHero(animate){
+  var c = TOTAL.c;
+  areaChart(document.getElementById("hero-chart"), c, {animate:animate, h: innerWidth<640?180:230,
+    label:"Cliques por mês nas contas de parques, de out/2023 a out/2026",
+    tipFmt:function(i){ return nf.format(c[i])+" cliques"; }});
+  document.getElementById("hero-range").textContent = LABELS[0]+" a "+LABELS[N-1];
+}
+countTo(document.getElementById("k-c"), sum(TOTAL.c), function(v){ return compact(v); }, 1200);
+countTo(document.getElementById("k-g"), TOTAL.c[N-1]/TOTAL.c[0], function(v){ return v.toFixed(1).replace(".",",")+"x"; }, 1200);
+countTo(document.getElementById("b-c"), sum(TOTAL.c), function(v){ return compact(v); }, 1200);
+
+/* ====== ESCALA: barras mensais (soma das contas) ====== */
+function renderStack(){
+  var box = document.getElementById("stack-chart"); box.innerHTML="";
+  var v = TOTAL.c, W = box.clientWidth || 700, H = innerWidth<640 ? 240 : 340, pl=48, pr=4, pt=10, pb=26, iw=W-pl-pr, ih=H-pt-pb;
+  var tk = ticks(Math.max.apply(null,v),5), max = tk.max;
+  var svg = el("svg",{viewBox:"0 0 "+W+" "+H,height:H,role:"img","aria-label":"Cliques por mês somando as contas de parques: de "+compact(v[0])+" em "+LABELS[0]+" para "+compact(v[N-1])+" em "+LABELS[N-1]+"."},box);
+  function Y(x){ return pt+ih-x/max*ih; }
+  for (var g=0; g<=tk.n; g++){ var gv=tk.step*g, gy=Y(gv);
+    el("line",{x1:pl,x2:W-pr,y1:gy,y2:gy,stroke:g===0?"#D5D5CF":"#ECECE7","stroke-width":1},svg);
+    var tx=el("text",{x:pl-8,y:gy+4,"text-anchor":"end","font-size":12,fill:"#6B7079"},svg); tx.textContent=compact(gv); }
+  var slot = iw/N, bw = Math.max(3, slot - (W<640?2:4)), stepL = W<640 ? 12 : 6;
+  for (var i=0;i<N;i+=stepL){ var t=el("text",{x:pl+slot*i+slot/2,y:H-6,"text-anchor":"middle","font-size":12,fill:"#6B7079"},svg); t.textContent=LABELS[i]; }
+  var bars = [];
+  for (var i=0;i<N;i++){
+    var h = v[i]/max*ih, x = pl+slot*i+(slot-bw)/2, y = Y(0)-h, r = Math.min(4,bw/2,h);
+    bars.push(el("path",{d:"M"+x+" "+Y(0)+" V"+(y+r)+" Q"+x+" "+y+" "+(x+r)+" "+y+" H"+(x+bw-r)+" Q"+(x+bw)+" "+y+" "+(x+bw)+" "+(y+r)+" V"+Y(0)+" Z",fill:"#2457FF"},svg));
+  }
+  var tip = makeTip(box), hit = el("rect",{x:pl,y:0,width:iw,height:H,fill:"transparent"},svg);
+  function show(cx){
+    var r=svg.getBoundingClientRect(), x=(cx-r.left)*(W/r.width), i=Math.floor((x-pl)/slot); i=Math.max(0,Math.min(N-1,i));
+    bars.forEach(function(b,bi){ b.setAttribute("fill", bi===i ? "#1739C2" : "#9FB4FF"); });
+    tip.innerHTML = "<b>"+LABELS[i]+"</b><br>"+nf.format(v[i])+" cliques";
+    tip.classList.add("on"); placeTip(tip, box, (pl+slot*i+slot/2)*r.width/W, Y(v[i])*r.width/W);
+  }
+  function hide(){ bars.forEach(function(b){ b.setAttribute("fill","#2457FF"); }); tip.classList.remove("on"); }
+  hit.addEventListener("pointermove",function(e){show(e.clientX);}); hit.addEventListener("pointerdown",function(e){show(e.clientX);}); hit.addEventListener("pointerleave",hide);
+}
+(function(){
+  var a = TOTAL.c[0], b = TOTAL.c[N-1];
+  document.getElementById("i-mult").textContent = (b/a).toFixed(1).replace(".",",")+"x";
+  document.getElementById("i-from").textContent = compact(a);
+  document.getElementById("i-to").textContent = compact(b);
+  document.getElementById("i-cpc").textContent = brl2(sum(TOTAL.s.slice(-12))/sum(TOTAL.c.slice(-12)));
+})();
+
+/* ====== CASOS ====== */
+var CASES = [
+  {id:"recanto", name:"Recanto Cataratas", seg:"Resort", head:"~R$ 10 mi/mês",
+   meta:"Hotelaria · Foz do Iguaçu",
+   desc:"Captação de leads para a central de vendas do resort, com otimização contínua de públicos, criativos e lances. O time comercial recebe um volume alto e constante de contatos qualificados, e isso vira reserva.",
+   m:[["~R$ 10 mi","por mês em vendas de hospedagem"],["900/dia","leads qualificados para o time comercial"],["R$ 1,74","custo médio por lead"]],
+   chart:"dots"},
+  {id:"parques", name:"Parques e atrações", seg:"Dreams Park Show e Zoo Park", head:"~R$ 5 mi/mês",
+   meta:"Turismo · Foz do Iguaçu, Gramado e Campos do Jordão",
+   desc:"Mídia paga no Meta Ads e otimização de conversão para parques e atrações turísticas. Comecei em Foz do Iguaçu e levei a operação para Gramado e Campos do Jordão. A venda fecha no WhatsApp.",
+   m:[["~R$ 5 mi","de faturamento por mês nos 3 destinos"],["2,6 mi","de cliques desde out/2023"],["+220%","na taxa de conversão do site"]],
+   chart:"parques"},
+  {id:"vip", name:"Vip Led", seg:"Clínica de estética", head:"R$ 180 mil",
+   meta:"Serviço local · Google Ads e Meta Ads",
+   desc:"Anúncios locais no Google e no Meta para gerar agendamentos de procedimentos estéticos com verba enxuta.",
+   m:[["R$ 180 mil","em procedimentos vendidos"],["R$ 3 mil","por mês em anúncios"]],
+   chart:"vip"},
+  {id:"pioneer", name:"Pioneer International", seg:"Varejo internacional", head:"+181% vendas",
+   meta:"Varejo · Ciudad del Este",
+   desc:"Gestão de performance com foco em conversão: criativos com mais cliques, custo por clique muito baixo e vendas crescendo.",
+   m:[["+181%","em vendas"],["+518%","na taxa de conversão"],["14%","de taxa de cliques"],["R$ 0,04","de custo por clique"]],
+   chart:"pioneer"},
+  {id:"atacado", name:"Atacado Connect", seg:"E-commerce", head:"−70% tempo",
+   meta:"E-commerce atacadista · Ciudad del Este",
+   desc:"Automação do cadastro de produtos e SEO técnico para um e-commerce de grande porte.",
+   m:[["−70%","no tempo operacional"],["SEO técnico","em um catálogo de grande porte"]],
+   chart:"atacado"}
+];
+var caseList = document.getElementById("case-list"), caseDetail = document.getElementById("case-detail");
+CASES.forEach(function(c, idx){
+  var b=document.createElement("button"); b.type="button"; b.className="case-btn"; b.setAttribute("role","tab"); b.id="tab-"+c.id;
+  b.setAttribute("aria-selected", idx===0?"true":"false");
+  b.innerHTML="<div><strong>"+c.name+"</strong><span>"+c.seg+"</span></div><em>"+c.head+"</em>";
+  b.addEventListener("click", function(){ selectCase(idx, true); });
+  b.addEventListener("keydown", function(e){
+    if (e.key==="ArrowDown"||e.key==="ArrowRight"){ e.preventDefault(); selectCase((idx+1)%CASES.length,true,true); }
+    if (e.key==="ArrowUp"||e.key==="ArrowLeft"){ e.preventDefault(); selectCase((idx-1+CASES.length)%CASES.length,true,true); }
+  });
+  caseList.appendChild(b);
+});
+function hbars(box, items, fmt){
+  var max = Math.max.apply(null, items.map(function(i){return i.v;}));
+  box.innerHTML = items.map(function(it){
+    return '<div style="display:grid;grid-template-columns:110px 1fr 90px;gap:10px;align-items:center;font-size:14px;margin-bottom:8px">'+
+      '<span style="color:var(--ink-2)">'+it.l+'</span><span style="height:16px;background:var(--grid);border-radius:0 4px 4px 0;overflow:hidden"><span class="hb" style="display:block;height:100%;width:0;background:'+(it.c||"var(--blue)")+';border-radius:0 4px 4px 0;transition:width .8s cubic-bezier(.2,.7,.2,1)" data-w="'+(it.v/max*100)+'"></span></span>'+
+      '<b style="text-align:right">'+fmt(it.v)+'</b></div>';
+  }).join("");
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.querySelectorAll(".hb").forEach(function(s){ s.style.width = s.dataset.w+"%"; }); }); });
+}
+function beforeAfter(box, rows){
+  box.innerHTML = rows.map(function(r){
+    var max = Math.max(r.a, r.b);
+    return '<div style="margin-bottom:12px"><div style="font-size:14px;color:var(--ink-2);margin-bottom:6px">'+r.l+' <b style="color:var(--ink)">'+r.t+'</b></div><div class="ba">'+
+      '<div class="ba-row"><span>Antes</span><span class="ba-bar" data-w="'+(r.a/max*100)+'"></span></div>'+
+      '<div class="ba-row"><span>Depois</span><span class="ba-bar after" data-w="'+(r.b/max*100)+'"></span></div></div></div>';
+  }).join("");
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.querySelectorAll(".ba-bar").forEach(function(s){ s.style.width = s.dataset.w+"%"; }); }); });
+}
+function selectCase(idx, user, focus){
+  var c = CASES[idx];
+  caseList.querySelectorAll(".case-btn").forEach(function(b,i){ b.setAttribute("aria-selected", i===idx?"true":"false"); b.tabIndex = i===idx?0:-1; });
+  if (focus) caseList.children[idx].focus();
+  caseDetail.setAttribute("aria-labelledby","tab-"+c.id);
+  caseDetail.innerHTML = '<div><div class="meta">'+c.meta+'</div><h3>'+c.name+'</h3></div><p class="desc">'+c.desc+'</p>'+
+    '<div class="mgrid">'+c.m.map(function(m){ return '<div class="m"><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'; }).join("")+'</div>'+
+    '<div class="case-chart"><h4 id="cc-title"></h4><div id="cc" class="chart"></div></div>';
+  if (user && !REDUCED){ caseDetail.classList.remove("swap"); void caseDetail.offsetWidth; caseDetail.classList.add("swap"); }
+  var box = document.getElementById("cc"), title = document.getElementById("cc-title");
+  if (c.chart==="dots"){
+    title.textContent = "Do lead à reserva, em números";
+    box.innerHTML = '<div class="funnel">'+
+      '<div class="fstep"><b>900</b><span>leads qualificados por dia</span></div><span class="farrow" aria-hidden="true">→</span>'+
+      '<div class="fstep"><b>~27 mil</b><span>leads por mês para a central de vendas</span></div><span class="farrow" aria-hidden="true">→</span>'+
+      '<div class="fstep last"><b>~R$ 10 mi</b><span>por mês em reservas de hospedagem</span></div></div>'+
+      '<p class="fnote">Leads por mês calculados a partir da média diária (900 × 30 dias).</p>';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.querySelector(".funnel").classList.add("on"); }); });
+  } else if (c.chart==="parques"){
+    title.textContent = "Cliques por mês, somando as contas de parques (Meta Ads)";
+    areaChart(box, TOTAL.c, {h:170, label:"Cliques por mês nas contas de parques", tipFmt:function(i){ return nf.format(TOTAL.c[i])+" cliques"; }});
+  } else if (c.chart==="vip"){
+    title.textContent = "Faturamento em procedimentos comparado à verba mensal";
+    hbars(box, [{l:"Faturamento",v:180000},{l:"Verba mensal",v:3000,c:"#A9AEB7"}], function(v){ return compact(v,true); });
+  } else if (c.chart==="pioneer"){
+    title.textContent = "Antes e depois (índice, antes = 100)";
+    beforeAfter(box, [{l:"Vendas",t:"+181%",a:100,b:281},{l:"Taxa de conversão",t:"+518%",a:100,b:618}]);
+  } else if (c.chart==="atacado"){
+    title.textContent = "Tempo operacional no cadastro de produtos (índice, antes = 100)";
+    beforeAfter(box, [{l:"Tempo gasto",t:"−70%",a:100,b:30}]);
+  }
+}
+
+/* ====== GANHOS ====== */
+var GAINS = [
+  {who:"Recanto Cataratas", what:"Por mês em reservas de hospedagem", pct:"~R$ 10 mi", stats:[["900/dia","leads qualificados"],["R$ 1,74","por lead"]]},
+  {who:"Pioneer International", what:"Taxa de conversão", pct:"+518%", a:100, b:618},
+  {who:"Dreams Park Show", what:"Taxa de conversão do site", pct:"+220%", a:100, b:320},
+  {who:"Parques em 3 destinos", what:"Cliques por mês (out/23 → out/26)", pct:"+__CLK__%", a:100, b:100}
+];
+GAINS.forEach(function(g){ if (g.pct.indexOf("__CLK__")>-1){ var r=TOTAL.c[N-1]/TOTAL.c[0]; g.b=Math.round(r*100); g.pct="+"+Math.round((r-1)*100)+"%"; } });
+var gainsBox = document.getElementById("gains");
+gainsBox.innerHTML = GAINS.map(function(g){
+  var body = g.stats
+    ? '<div class="gstats">'+g.stats.map(function(s){ return '<div><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'; }).join("")+'</div>'
+    : '<div class="ba"><div class="ba-row"><span>Antes</span><span class="ba-bar" data-w="'+(g.a/Math.max(g.a,g.b)*100)+'"></span></div>'+
+      '<div class="ba-row"><span>Depois</span><span class="ba-bar after" data-w="'+(g.b/Math.max(g.a,g.b)*100)+'"></span></div></div>';
+  return '<div class="gain'+(g.stats?' feat':'')+'"><span class="who">'+g.who+'</span><b class="pct">'+g.pct+'</b><span style="font-weight:600">'+g.what+'</span>'+body+'</div>';
+}).join("");
+if ("IntersectionObserver" in window){
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.querySelectorAll(".ba-bar").forEach(function(s){ s.style.width=s.dataset.w+"%"; }); io.unobserve(e.target); } }); },{threshold:.3});
+  io.observe(gainsBox);
+} else gainsBox.querySelectorAll(".ba-bar").forEach(function(s){ s.style.width=s.dataset.w+"%"; });
+
+/* ====== Sparkline do CTA final ====== */
+(function(){
+  var svg = document.getElementById("final-spark"), v = TOTAL.c, max = Math.max.apply(null,v);
+  var d = v.map(function(x,i){ return (i?"L":"M")+(i*600/(v.length-1)).toFixed(1)+" "+(290 - x/max*270).toFixed(1); }).join(" ");
+  el("path",{d:d+" L600 300 L0 300 Z",fill:"#fff",opacity:.5},svg);
+  el("path",{d:d,fill:"none",stroke:"#fff","stroke-width":3},svg);
+})();
+
+/* ====== Inicialização e redimensionamento ====== */
+renderHero(true); renderStack(); selectCase(0,false);
+var rt, lastW = innerWidth;
+addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ if (Math.abs(innerWidth-lastW) < 2) return; lastW = innerWidth; renderHero(false); renderStack();
+  var cur = 0; caseList.querySelectorAll(".case-btn").forEach(function(b,i){ if(b.getAttribute("aria-selected")==="true") cur=i; }); selectCase(cur,false); }, 150); });
+</script>
+</body>
+</html>
