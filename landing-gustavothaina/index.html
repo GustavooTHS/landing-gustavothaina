@@ -12,17 +12,30 @@
 <meta name="color-scheme" content="light">
 <link rel="icon" href="icone.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icone-512.png">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KW5P2HC7');</script>
-<!-- Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','5476700072377016');fbq('track','PageView');</script>
+<!-- Google Tag Manager + Meta Pixel: carregados depois da página (primeira interação ou 3,5 s), para não pesar no carregamento -->
+<script>
+window.dataLayer = window.dataLayer || [];
+window.__tagsLoaded = false;
+window.loadTags = function(){
+  if (window.__tagsLoaded) return; window.__tagsLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KW5P2HC7');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','5476700072377016'); fbq('track','PageView');
+};
+['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){ addEventListener(ev, window.loadTags, {once:true, passive:true}); });
+addEventListener('load', function(){ setTimeout(window.loadTags, 3500); });
+</script>
 <!-- Vercel Web Analytics e Speed Insights (funcionam quando ativados no painel da Vercel) -->
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dm-sans-400.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/dm-sans-500.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/dm-sans-600.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/dm-sans-700.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/dm-sans-800.woff2) format("woff2")}
 :root{
   --bg:#FAFAF7; --bg-2:#F2F2EE; --surface:#FFFFFF; --ink:#14161A; --ink-2:#4A4F58; --muted:#6B7079;
   --line:#E4E4DE; --grid:#ECECE7; --blue:#2457FF; --blue-ink:#1739C2; --blue-soft:#EAEFFF; --blue-mid:#C9D5FF;
@@ -161,7 +174,7 @@ section.block{padding:112px 0}
 .fstep.last{background:var(--blue);color:#fff}
 .fstep b{font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
 .fstep span{font-size:14px;color:var(--ink-2);line-height:1.35}
-.fstep.last span{color:#DCE4FF}
+.fstep.last span{color:#FFFFFF}
 .farrow{align-self:center;color:var(--blue);font-size:22px;font-weight:800;opacity:0;transition:opacity .5s}
 .funnel.on .fstep,.funnel.on .farrow{opacity:1;transform:none}
 .funnel.on > :nth-child(2){transition-delay:.15s}.funnel.on > :nth-child(3){transition-delay:.25s}
@@ -181,11 +194,11 @@ section.block{padding:112px 0}
 .ba-bar.after{background:var(--blue)}
 
 .gain.feat{background:var(--blue);border-color:var(--blue);color:#fff}
-.gain.feat .who{color:#C9D5FF}
+.gain.feat .who{color:#FFFFFF}
 .gstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
-.gstats div{background:rgba(255,255,255,.12);border-radius:12px;padding:10px 12px}
+.gstats div{background:rgba(0,0,0,.14);border-radius:12px;padding:10px 12px}
 .gstats b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em}
-.gstats span{display:block;font-size:13px;line-height:1.3;color:#DCE4FF;margin-top:2px}
+.gstats span{display:block;font-size:13px;line-height:1.3;color:#FFFFFF;margin-top:2px}
 
 /* sites */
 .sites{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
@@ -212,18 +225,18 @@ section.block{padding:112px 0}
 .step p{color:var(--ink-2);font-size:16px}
 /* diferencial */
 .edge{background:var(--blue);color:#fff}
-.edge .sub{color:#DCE4FF}
+.edge .sub{color:#FFFFFF}
 .edge-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
 .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px}
 .pillar{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:18px}
 .pillar b{display:block;font-size:20px;font-weight:800;letter-spacing:-.01em}
-.pillar span{font-size:15px;color:#DCE4FF;line-height:1.4;display:block;margin-top:4px}
+.pillar span{font-size:15px;color:#FFFFFF;line-height:1.4;display:block;margin-top:4px}
 .compare{background:var(--surface);color:var(--ink);border-radius:28px;padding:12px 28px;box-shadow:0 30px 60px -30px rgba(10,20,80,.45)}
 .compare table{width:100%;border-collapse:collapse;font-size:16px}
 .compare th{font-size:14px;font-weight:700;color:var(--muted);text-align:left;padding:16px 8px 12px}
 .compare th.me{color:var(--blue)}
 .compare td{padding:16px 8px;border-top:1px solid var(--grid);vertical-align:top;line-height:1.4}
-.compare td:first-child{font-weight:700;width:30%}
+.compare th[scope=row]{font-size:16px;font-weight:700;color:var(--ink);width:30%;padding:16px 8px;border-top:1px solid var(--grid);vertical-align:top;line-height:1.4}
 .compare td.no{color:var(--muted)}
 .compare td.me{font-weight:600}
 .compare td.me::before{content:"";display:inline-block;width:9px;height:5px;border-left:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);transform:rotate(-45deg) translateY(-3px);margin-right:9px}
@@ -272,7 +285,7 @@ details p{margin-top:12px;color:var(--ink-2)}
 /* cta final */
 .final-box{background:var(--blue);color:#fff;border-radius:36px;padding:80px 56px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:end;overflow:hidden;position:relative}
 .final-box h2{max-width:16ch}
-.final-box p{font-size:19px;color:#DCE4FF;margin-top:18px;max-width:44ch}
+.final-box p{font-size:19px;color:#FFFFFF;margin-top:18px;max-width:44ch}
 .final-box .btn{background:#fff;color:var(--blue);justify-self:start}
 .final-box .btn:hover{background:#EEF2FF}
 .final-spark{position:absolute;right:0;bottom:0;width:60%;height:70%;opacity:.22;pointer-events:none}
@@ -372,7 +385,7 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
         <a class="btn btn-primary js-wa" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Quero vender mais</a>
         <a class="btn btn-line" href="#casos">Ver casos</a>
       </div>
-      <p class="proof"><img class="avatar" src="foto-avatar.jpg" alt="" onerror="this.remove()"><span>Os clientes que atendo faturam juntos cerca de R$ 15 milhões por mês.</span></p>
+      <p class="proof"><img class="avatar" src="foto-avatar.webp" alt="" width="52" height="52" onerror="this.remove()"><span>Os clientes que atendo faturam juntos cerca de R$ 15 milhões por mês.</span></p>
     </div>
 
     <div class="panel" aria-label="Painel com dados reais das contas de parques que eu gerencio">
@@ -431,7 +444,7 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
     </div>
     <div class="explorer">
       <div class="case-list" role="tablist" id="case-list" aria-label="Casos"></div>
-      <article class="case-detail" id="case-detail" role="tabpanel" aria-live="polite"></article>
+      <div class="case-detail" id="case-detail" role="tabpanel" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -451,13 +464,13 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
     </div>
     <div class="compare">
       <table>
-        <thead><tr><th></th><th>Só gestão de tráfego</th><th class="me">Comigo</th></tr></thead>
+        <thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">Só gestão de tráfego</th><th scope="col" class="me">Comigo</th></tr></thead>
         <tbody>
-          <tr><td>Anúncios</td><td class="no">Sim</td><td class="me">Sim, com otimização semanal</td></tr>
-          <tr><td>Página de destino</td><td class="no">Fica com outro fornecedor</td><td class="me">Eu crio e ajusto</td></tr>
-          <tr><td>Rastreio</td><td class="no">Muitas vezes incompleto</td><td class="me">Configurado e testado</td></tr>
-          <tr><td>SEO e GEO</td><td class="no">Não incluso</td><td class="me">Incluso no plano completo</td></tr>
-          <tr><td>Quando a venda trava</td><td class="no">Você corre atrás de cada fornecedor</td><td class="me">Eu mesmo resolvo</td></tr>
+          <tr><th scope="row">Anúncios</th><td class="no">Sim</td><td class="me">Sim, com otimização semanal</td></tr>
+          <tr><th scope="row">Página de destino</th><td class="no">Fica com outro fornecedor</td><td class="me">Eu crio e ajusto</td></tr>
+          <tr><th scope="row">Rastreio</th><td class="no">Muitas vezes incompleto</td><td class="me">Configurado e testado</td></tr>
+          <tr><th scope="row">SEO e GEO</th><td class="no">Não incluso</td><td class="me">Incluso no plano completo</td></tr>
+          <tr><th scope="row">Quando a venda trava</th><td class="no">Você corre atrás de cada fornecedor</td><td class="me">Eu mesmo resolvo</td></tr>
         </tbody>
       </table>
     </div>
@@ -483,25 +496,25 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
       <p class="sub">Do turismo à tecnologia B2B. Sites rápidos, prontos para anúncios e para aparecer no Google.</p>
     </div>
     <div class="sites">
-      <!-- Coloque os prints em uma pasta "sites" ao lado deste arquivo: sites/dreams.jpg, sites/ligo.jpg, sites/lira.jpg, sites/myrthes.jpg (1440x900) -->
+      <!-- Coloque os prints em uma pasta "sites" ao lado deste arquivo: sites/dreams.webp, sites/ligo.webp, sites/lira.webp, sites/myrthes.webp (1000x500) -->
       <a class="site" href="https://dreamsparkshow.com.br" target="_blank" rel="noopener">
         <div class="frame"><div class="bar"><i></i><i></i><i></i><span>dreamsparkshow.com.br</span></div>
-          <div class="shot"><div class="ph">dreamsparkshow.com.br</div><img src="sites/dreams.jpg" alt="Página inicial de Dreams Park Show" loading="lazy" onerror="this.remove()"></div></div>
+          <div class="shot"><div class="ph">dreamsparkshow.com.br</div><img src="sites/dreams.webp" width="1000" height="500" decoding="async" alt="Página inicial de Dreams Park Show" loading="lazy" onerror="this.remove()"></div></div>
         <div class="site-info"><div><h3>Dreams Park Show</h3><p>Home de complexo turístico em Foz do Iguaçu, com atrações, ingressos e promoções.</p><div class="tags"><span>Turismo</span><span>Home</span><span>Conversão</span></div></div><span class="go">Visitar ↗</span></div>
       </a>
       <a class="site" href="https://ligo.cloud" target="_blank" rel="noopener">
         <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ligo.cloud</span></div>
-          <div class="shot"><div class="ph">ligo.cloud</div><img src="sites/ligo.jpg" alt="Página inicial de Ligo Cloud" loading="lazy" onerror="this.remove()"></div></div>
+          <div class="shot"><div class="ph">ligo.cloud</div><img src="sites/ligo.webp" width="1000" height="500" decoding="async" alt="Página inicial de Ligo Cloud" loading="lazy" onerror="this.remove()"></div></div>
         <div class="site-info"><div><h3>Ligo Cloud</h3><p>Site de plataforma de atendimento com IA: módulos, cases, blog e pedido de demonstração.</p><div class="tags"><span>Tecnologia B2B</span><span>Site completo</span><span>SEO</span></div></div><span class="go">Visitar ↗</span></div>
       </a>
       <a class="site" href="https://lira-ia.com" target="_blank" rel="noopener">
         <div class="frame"><div class="bar"><i></i><i></i><i></i><span>lira-ia.com</span></div>
-          <div class="shot"><div class="ph">lira-ia.com</div><img src="sites/lira.jpg" alt="Página inicial de Lira" loading="lazy" onerror="this.remove()"></div></div>
+          <div class="shot"><div class="ph">lira-ia.com</div><img src="sites/lira.webp" width="1000" height="500" decoding="async" alt="Página inicial de Lira" loading="lazy" onerror="this.remove()"></div></div>
         <div class="site-info"><div><h3>Lira</h3><p>Página de produto de IA generativa que responde com base nos arquivos da empresa.</p><div class="tags"><span>IA</span><span>Página de produto</span><span>SEO</span></div></div><span class="go">Visitar ↗</span></div>
       </a>
       <a class="site" href="https://myrthes.com.br" target="_blank" rel="noopener">
         <div class="frame"><div class="bar"><i></i><i></i><i></i><span>myrthes.com.br</span></div>
-          <div class="shot"><div class="ph">myrthes.com.br</div><img src="sites/myrthes.jpg" alt="Página inicial de Myrthes" loading="lazy" onerror="this.remove()"></div></div>
+          <div class="shot"><div class="ph">myrthes.com.br</div><img src="sites/myrthes.webp" width="1000" height="500" decoding="async" alt="Página inicial de Myrthes" loading="lazy" onerror="this.remove()"></div></div>
         <div class="site-info"><div><h3>Myrthes</h3><p>Site de software jurídico com IA para gestão de processos e contencioso de massa.</p><div class="tags"><span>Jurídico</span><span>Site completo</span><span>SEO</span></div></div><span class="go">Visitar ↗</span></div>
       </a>
     </div>
@@ -561,9 +574,9 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
 <section class="block" style="padding-top:0">
   <div class="wrap about">
     <div class="photo">
-      <!-- Coloque sua foto como foto-gustavo.jpg na mesma pasta deste arquivo -->
-      <div class="ph"><b>GT</b><small>Sua foto aqui (foto-gustavo.jpg)</small></div>
-      <img src="foto-gustavo.jpg" alt="Gustavo Thainã" onerror="this.remove()">
+      <!-- Coloque sua foto como foto-gustavo.webp na mesma pasta deste arquivo -->
+      <div class="ph"><b>GT</b><small>Sua foto aqui (foto-gustavo.webp)</small></div>
+      <img src="foto-gustavo.webp" alt="Gustavo Thainã" loading="lazy" decoding="async" width="640" height="960" onerror="this.remove()">
     </div>
     <div class="about-copy">
       <h2>Prazer, Gustavo Thainã.</h2>
@@ -662,6 +675,7 @@ document.querySelectorAll(".js-wa").forEach(function(a, i){
   a.href = waUrl; a.target="_blank"; a.rel="noopener";
   a.addEventListener("click", function(){
     var where = a.classList.contains("wa-float") ? "botao_flutuante" : (a.closest("header") ? "topo" : (a.closest(".hero") ? "hero" : (a.closest(".final-box") ? "cta_final" : "outro")));
+    if (window.loadTags) window.loadTags();
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: "whatsapp_click", cta_location: where });
     if (window.fbq) fbq("track", "Contact", { content_name: "whatsapp", cta_location: where });
