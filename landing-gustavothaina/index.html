@@ -11,6 +11,13 @@
 <meta name="theme-color" content="#2457FF">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="logo-gt.svg" type="image/svg+xml">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KW5P2HC7');</script>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','5476700072377016');fbq('track','PageView');</script>
+<!-- Vercel Web Analytics e Speed Insights (funcionam quando ativados no painel da Vercel) -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
@@ -329,6 +336,8 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW5P2HC7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=5476700072377016&ev=PageView&noscript=1" alt=""></noscript>
 
 <header>
   <div class="wrap nav">
@@ -644,7 +653,15 @@ var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ====== WhatsApp ====== */
 var waUrl = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_TEXT);
-document.querySelectorAll(".js-wa").forEach(function(a){ a.href = waUrl; a.target="_blank"; a.rel="noopener"; });
+document.querySelectorAll(".js-wa").forEach(function(a, i){
+  a.href = waUrl; a.target="_blank"; a.rel="noopener";
+  a.addEventListener("click", function(){
+    var where = a.classList.contains("wa-float") ? "botao_flutuante" : (a.closest("header") ? "topo" : (a.closest(".hero") ? "hero" : (a.closest(".final-box") ? "cta_final" : "outro")));
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "whatsapp_click", cta_location: where });
+    if (window.fbq) fbq("track", "Contact", { content_name: "whatsapp", cta_location: where });
+  });
+});
 document.getElementById("y").textContent = new Date().getFullYear();
 var header = document.querySelector("header");
 addEventListener("scroll", function(){ header.classList.toggle("scrolled", scrollY > 8); }, {passive:true});
