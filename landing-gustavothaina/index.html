@@ -385,7 +385,7 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
         <a class="btn btn-primary js-wa" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Quero vender mais</a>
         <a class="btn btn-line" href="#casos">Ver casos</a>
       </div>
-      <p class="proof"><img class="avatar" src="foto-avatar.webp" alt="" width="52" height="52" onerror="this.remove()"><span>Os clientes que atendo faturam juntos cerca de R$ 15 milhões por mês.</span></p>
+      <p class="proof"><img class="avatar" src="foto-avatar.webp" alt="" width="52" height="52" onerror="this.remove()"><span>Na alta temporada, os clientes de turismo que atendo faturam juntos cerca de R$ 15 milhões por mês.</span></p>
     </div>
 
     <div class="panel" aria-label="Painel com dados reais das contas de parques que eu gerencio">
@@ -407,8 +407,8 @@ footer{padding:40px 0;font-size:14px;color:var(--muted)}
 <!-- FAIXA -->
 <div class="band" aria-label="Números principais">
   <div class="wrap band-grid">
-    <div class="band-item"><b>R$ 15 mi</b><span>por mês em vendas dos clientes de turismo que atendo</span></div>
-    <div class="band-item"><b>900/dia</b><span>leads qualificados para a central de vendas de um resort</span></div>
+    <div class="band-item"><b>R$ 15 mi</b><span>por mês em vendas dos clientes de turismo, na alta temporada</span></div>
+    <div class="band-item"><b>900/dia</b><span>leads qualificados por dia para um resort, no pico da temporada</span></div>
     <div class="band-item"><b id="b-c">2,6 mi</b><span>de cliques para sites e WhatsApp desde 2023</span></div>
     <div class="band-item"><b>12+ anos</b><span>em marketing digital, sites e SEO</span></div>
   </div>
@@ -796,10 +796,10 @@ function renderStack(){
 
 /* ====== CASOS ====== */
 var CASES = [
-  {id:"recanto", name:"Recanto Cataratas", seg:"Resort", head:"~R$ 10 mi/mês",
+  {id:"recanto", name:"Recanto Cataratas", seg:"Resort", head:"~R$ 10 mi no pico",
    meta:"Hotelaria · Foz do Iguaçu",
-   desc:"Captação de leads para a central de vendas do resort, com otimização contínua de públicos, criativos e lances. O time comercial recebe um volume alto e constante de contatos qualificados, e isso vira reserva.",
-   m:[["~R$ 10 mi","por mês em vendas de hospedagem"],["900/dia","leads qualificados para o time comercial"],["R$ 1,74","custo médio por lead"]],
+   desc:"Captação de leads para a central de vendas do resort, com otimização contínua de públicos, criativos e lances. O time comercial recebe um volume alto de contatos qualificados, e isso vira reserva. Números do pico da alta temporada de fim de ano.",
+   m:[["~R$ 10 mi","em reservas no mês de pico da temporada"],["900/dia","leads qualificados no pico"],["R$ 1,74","custo médio por lead no pico"]],
    chart:"dots"},
   {id:"parques", name:"Parques e atrações", seg:"Dreams Park Show e Zoo Park", head:"~R$ 5 mi/mês",
    meta:"Turismo · Foz do Iguaçu, Gramado e Campos do Jordão",
@@ -866,9 +866,9 @@ function selectCase(idx, user, focus){
     title.textContent = "Do lead à reserva, em números";
     box.innerHTML = '<div class="funnel">'+
       '<div class="fstep"><b>900</b><span>leads qualificados por dia</span></div><span class="farrow" aria-hidden="true">→</span>'+
-      '<div class="fstep"><b>~27 mil</b><span>leads por mês para a central de vendas</span></div><span class="farrow" aria-hidden="true">→</span>'+
-      '<div class="fstep last"><b>~R$ 10 mi</b><span>por mês em reservas de hospedagem</span></div></div>'+
-      '<p class="fnote">Leads por mês calculados a partir da média diária (900 × 30 dias).</p>';
+      '<div class="fstep"><b>R$ 1,74</b><span>custo médio de cada lead</span></div><span class="farrow" aria-hidden="true">→</span>'+
+      '<div class="fstep last"><b>~R$ 10 mi</b><span>em reservas de hospedagem no mês</span></div></div>'+
+      '<p class="fnote">Números do pico da alta temporada de fim de ano. Na baixa temporada, volume e faturamento são menores.</p>';
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.querySelector(".funnel").classList.add("on"); }); });
   } else if (c.chart==="parques"){
     title.textContent = "Cliques por mês, somando as contas de parques (Meta Ads)";
@@ -887,7 +887,7 @@ function selectCase(idx, user, focus){
 
 /* ====== GANHOS ====== */
 var GAINS = [
-  {who:"Recanto Cataratas", what:"Por mês em reservas de hospedagem", pct:"~R$ 10 mi", stats:[["900/dia","leads qualificados"],["R$ 1,74","por lead"]]},
+  {who:"Recanto Cataratas", what:"Em reservas no mês de pico da temporada", pct:"~R$ 10 mi", stats:[["900/dia","leads qualificados"],["R$ 1,74","por lead"]]},
   {who:"Pioneer International", what:"Taxa de conversão", pct:"+518%", a:100, b:618},
   {who:"Dreams Park Show", what:"Taxa de conversão do site", pct:"+220%", a:100, b:320},
   {who:"Parques em 3 destinos", what:"Cliques por mês (out/23 → out/26)", pct:"+__CLK__%", a:100, b:100}
